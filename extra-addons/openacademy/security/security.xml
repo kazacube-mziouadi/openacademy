@@ -1,0 +1,44 @@
+<openerp>
+    <data>
+        <record id="group_manager" model="res.groups">
+            <field name="name">OpenAcademy / Manager</field>
+        </record>
+
+
+        <record id="only_responsable_can_modify" model="ir.rule">
+            <field name="name">Seul le Responsable peut Modifier le cour</field>
+            <field name="model_id" ref="model_openacademy_course"/>
+            <field name="groups" eval="[(4, ref('openacademy.group_manager'))]"/>
+            <field name="perm_read" eval="0"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="1"/>
+            <field name="domain_force">
+                ['|', ('responsable_id', '=', False), ('responsable_id', '=', user.id)]
+            </field>
+        </record>
+
+
+        <record id="wizard_form_view" model="ir.ui.view">
+            <field name="name">wizard.form</field>
+            <field name="model">openacademy.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Ajouter Participants">
+                    <group>
+                        <field name="session_ids"/>
+                        <field name="participant_ids"/>
+                    </group>
+                    <footer>
+                        <button name="subscribe" type="object" string="Subscribe" class="oe_highlight"/>
+                        or
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="launch_session_wizard" name="Ajouter Participants"
+                    src_model="openacademy.session" res_model="openacademy.wizard"
+                    view_mode="form" target="new" key2="client_action_multi"/>
+    </data>
+</openerp>

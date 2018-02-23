@@ -65,14 +65,14 @@
             <field name="arch" type="xml">
                 <form string="Session Form">
                     <header>
-                        <button name="draft" type="workflow"
-                                string="Reset to draft"
-                                states="confirmed,done"/>
-                        <button name="confirm" type="workflow"
-                                string="Confirm" states="draft"
+                        <button name="action_brouillon" type="object"
+                                string="Brouillon"
+                                states="confirme,termine"/>
+                        <button name="action_confirm" type="object"
+                                string="Confirmer" states="brouillon"
                                 class="oe_highlight"/>
-                        <button name="done" type="workflow"
-                                string="Mark as done" states="confirmed"
+                        <button name="action_termine" type="object"
+                                string="Terminer" states="confirme"
                                 class="oe_highlight"/>
                         <field name="state" widget="statusbar"/>
                     </header>
@@ -85,6 +85,7 @@
                         </group>
                         <group string="Schedule">
                             <field name="date_debut"/>
+                            <field name="date_fin"/>
                             <field name="duree"/>
                             <field name="nbr_place"/>
                             <field name="place_occupe" widget="progressbar"/>
@@ -145,6 +146,7 @@
         <record model="ir.ui.view" id="session_kanban_view">
             <field name="name">openacademy.session.kanban</field>
             <field name="model">openacademy.session</field>
+            <field name="type">kanban</field>
             <field name="arch" type="xml">
                 <kanban default_group_by="cour_id">
                     <field name="color">

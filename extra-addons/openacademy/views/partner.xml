@@ -17,28 +17,28 @@
         </record>
 
         <record id="contact_list_action" model="ir.actions.act_window">
-            <field name="name">Contact Tags</field>
+            <field name="name">Contacts</field>
             <field name="res_model">res.partner</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-         <record id="contact_cat_list_action" model="ir.actions.act_window">
+         <!--<record id="contact_cat_list_action" model="ir.actions.act_window">
             <field name="name">Contacts Tags</field>
             <field name="res_model">res.partner.category</field>
             <field name="view_mode">tree,form</field>
-        </record>
+        </record>-->
 
-        <record model="res.partner.category" id="teacher1">
+        <!--<record model="res.partner.category" id="teacher1">
             <field name="name">Teacher / Level 1</field>
         </record>
         <record model="res.partner.category" id="teacher2">
             <field name="name">Teacher / Level 2</field>
-        </record>
+        </record>-->
         <menuitem id="configuration_menu" name="Configuration"
                   parent="main_openacademy_menu"/>
         <menuitem id="contact_menu" name="Contacts"
                   parent="configuration_menu" action="contact_list_action"/>
-        <menuitem id="contact_cat_menu" name="Contact Tags"
-                  parent="configuration_menu" action="contact_cat_list_action"/>
+        <!--<menuitem id="contact_cat_menu" name="Contact Tags"
+                  parent="configuration_menu" action="contact_cat_list_action"/>-->
     </data>
 </openerp>

@@ -49,7 +49,7 @@ class Session(models.Model):
     duree = fields.Float(digits=(6, 2),help='Durée pour un jour')
     nbr_place = fields.Integer(string='Nombre de Place')
     instructeur_id = fields.Many2one('res.partner',string='Instructeur',
-                                     domain=['|',('instructeur','=',True)])
+                                     domain=[('instructeur','=',True)])
     cour_id = fields.Many2one('openacademy.course',ondelete='cascade',string='Cour',required=True)
 
     participant_ids = fields.Many2many('res.partner', string='Participants')
@@ -63,22 +63,22 @@ class Session(models.Model):
     color = fields.Integer()
 
     state = fields.Selection([
-        ('draft', "Draft"),
-        ('confirmed', "Confirmed"),
-        ('done', "Done"),
-    ], default='draft')
+        ('brouillon', "Brouillon"),
+        ('confirme', "Confirme"),
+        ('termine', "Termine"),
+    ], default='brouillon')
 
     @api.multi
-    def action_draft(self):
-        self.etat = 'draft'
+    def action_brouillon(self):
+        self.state = 'brouillon'
 
     @api.multi
     def action_confirm(self):
-        self.etat = 'confirmed'
+        self.state = 'confirme'
 
     @api.multi
-    def action_done(self):
-        self.etat = 'done'
+    def action_termine(self):
+        self.state = 'termine'
 
     @api.depends('participant_ids')
     def _get_nbr_participants(self):
@@ -122,22 +122,12 @@ class Session(models.Model):
             else:
                 r.place_occupe = 100 * len(r.participant_ids) / r.nbr_place
 
-    @api.onchange('nbr_place','participant_ids')
+    @api.constrains('nbr_place','participant_ids')
     def verif_valid_place(self):
         if self.nbr_place < 0:
-            return {
-                'warning' : {
-                    'title' : _('Nombre de place Incorrect'),
-                    'message' : _('Le nombre de place ne peut pas être négative')
-                }
-            }
+            raise exceptions.ValidationError(_("Le nombre de place ne peut pas être négative"))
         if self.nbr_place < len(self.participant_ids):
-            return {
-                'warning' : {
-                    'title' : _('Session Saturée'),
-                    'message' : _('Les places de la sessions sont réservées')
-                }
-            }
+            raise exceptions.ValidationError(_("Les places de la sessions sont réservées"))
 
     @api.constrains('participant_ids','instructeur_id')
     def _verif_instr_particip(self):

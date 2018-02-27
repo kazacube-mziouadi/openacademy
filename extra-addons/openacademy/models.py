@@ -135,15 +135,20 @@ class Session(models.Model):
             if r.instructeur_id in r.participant_ids:
                 raise exceptions.ValidationError(_("l'instructeur de la session ne peut pas être particpant"))
 
-    @api.constrains('name')
+    @api.constrains('instructeur_id')
     def verif_inst_libre(self):
-        session = self.env['openacademy.session'].search([])
-        print(len(session))
-        print(self)
-        print(self.date_debut)
-        print(self.date_fin)
-        for record in session:
-            print (record.name)
+        sessions = self.env['openacademy.session'].search([])
+        libre = True
+        for record in sessions:
+            if record.instructeur_id.id is self.instructeur_id.id:
+                if (self.date_debut > record.date_debut and self.date_debut < record.date_fin):
+                    libre = False
+                if (self.date_fin > record.date_debut and self.date_fin < record.date_fin):
+                    libre = False
+                if (record.date_debut > self.date_debut and record.date_fin < self.date_fin):
+                    libre = False
+        if libre is False:
+            raise exceptions.ValidationError(_("l'instructeur choisi n'est pas libre dans cette période, veullez voir le calndrier des sessions ou le graph"))
         # if self.name == 'bien':
         #     raise exceptions.ValidationError(_("bien"))
 

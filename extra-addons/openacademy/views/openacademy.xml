@@ -144,18 +144,22 @@
         </record>
 
         <record model="ir.ui.view" id="session_kanban_view">
-            <field name="name">openacademy.session.kanban</field>
             <field name="model">openacademy.session</field>
-            <field name="type">kanban</field>
             <field name="arch" type="xml">
                 <kanban default_group_by="cour_id">
-                    <field name="color">
-                        <templates>
-                            <t t-name="kanban-box">
-                            <div
-                                    t-attf-class="oe_kanban_color_{{kanban_getcolor(record.color.raw_value)}}
+                    <field name="name"/>
+                    <field name="date_debut"/>
+                    <field name="cour_id"/>
+                    <field name="duree"/>
+                    <field name="color"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_color_{{kanban_getcolor(record.color.raw_value)}}
                                                   oe_kanban_global_click_edit oe_semantic_html_override
                                                   oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
+                                <div class="o_kanban_image">
+                                   <!-- <img t-att-src="kanban_image('product.template', 'image_small')"/>
+                                --></div>
                                 <div class="oe_dropdown_kanban">
                                     <!-- dropdown menu -->
                                     <div class="oe_dropdown_toggle">
@@ -174,19 +178,38 @@
                                 </div>
                                 <div t-attf-class="oe_kanban_content">
                                     <!-- title -->
-                                    Nom de Session:
+                                    Session name:
                                     <field name="name"/>
                                     <br/>
-                                    Date de Début:
+                                    Start date:
                                     <field name="date_debut"/>
                                     <br/>
-                                    Durée:
+                                    duration:
                                     <field name="duree"/>
                                 </div>
+                                <!--<div class="oe_kanban_details">
+                                    <strong>
+                                        <field name="name"/>
+                                    </strong>
+                                    <div name="tags"/>
+                                    <strong>
+                                        <span>Cour: <field name="cour_id"/></span>
+                                    </strong>
+                                    <div name="tags"/>
+                                    <div name="tags"/>
+                                  <strong>
+                                        <span>Date Début: <field name="date_debut"/></span>
+                                    </strong>
+                                  <div name="tags"/>
+                                    <div name="tags"/>
+                                  <ul>
+                                    <li>Durée : <field name="duree"/></li>
+                                  </ul>
+                                  <div name="tags"/>
+                                </div>-->
                             </div>
                         </t>
-                        </templates>
-                    </field>
+                    </templates>
                 </kanban>
             </field>
         </record>

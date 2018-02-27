@@ -148,9 +148,6 @@ class Session(models.Model):
                 if (record.date_debut > self.date_debut and record.date_fin < self.date_fin):
                     libre = False
         if libre is False:
-            raise exceptions.ValidationError(_("l'instructeur choisi n'est pas libre dans cette période, veullez voir le calndrier des sessions ou le graph"))
-        # if self.name == 'bien':
-        #     raise exceptions.ValidationError(_("bien"))
-
+            raise exceptions.ValidationError(_("l'instructeur choisi n'est pas libre dans cette période, veuillez voir le calndrier des sessions ou le graph"))
 
 

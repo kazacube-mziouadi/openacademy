@@ -1,0 +1,103 @@
+module,type,name,res_id,src,value
+openacademy,model,"ir.actions.act_window,help",openacademy.course_list_action,"<p class=""oe_view_nocontent_create"">
+                    Créer votre premier Cour
+                </p>
+            ","<p class=""oe_view_nocontent_create"">
+                    Créer votre premier Cour
+                </p>
+            "
+openacademy,field,"openacademy.session,active",0,Active,Active
+openacademy,model,"ir.actions.act_window,name",openacademy.launch_session_wizard,Ajouter Participants,Ajouter Participants
+openacademy,view,openacademy.wizard,openacademy.wizard_form_view,Ajouter Participants,Ajouter Participants
+openacademy,view,openacademy.session,openacademy.session_calendar_view,Calendrier des Sessions,Calendrier des Sessions
+openacademy,view,openacademy.wizard,openacademy.wizard_form_view,Cancel,Cancel
+openacademy,field,"openacademy.session,color",0,Color,Color
+openacademy,model,"ir.ui.menu,name",openacademy.configuration_menu,Configuration,الإعدادات
+openacademy,view,openacademy.session,openacademy.session_form_view,Confirm,Confirm
+openacademy,selection,"openacademy.session,state",0,Confirmed,Confirmed
+openacademy,model,"ir.actions.act_window,name",openacademy.contact_list_action,Contact Tags,Contact Tags
+openacademy,model,"ir.ui.menu,name",openacademy.contact_cat_menu,Contact Tags,Contact Tags
+openacademy,model,"ir.ui.menu,name",openacademy.contact_menu,Contacts,Contacts
+openacademy,model,"ir.actions.act_window,name",openacademy.contact_cat_list_action,Contacts Tags,Contacts Tags
+openacademy,field,"openacademy.session,cour_id",0,Cour,Cour
+openacademy,model,"ir.actions.act_window,name",openacademy.course_list_action,Cours,Cours
+openacademy,model,"ir.ui.menu,name",openacademy.courses_menu,Cours,Cours
+openacademy,field,"openacademy.course,create_uid",0,Created by,Created by
+openacademy,field,"openacademy.session,create_uid",0,Created by,Created by
+openacademy,field,"openacademy.wizard,create_uid",0,Created by,Created by
+openacademy,field,"openacademy.course,create_date",0,Created on,Created on
+openacademy,field,"openacademy.session,create_date",0,Created on,Created on
+openacademy,field,"openacademy.wizard,create_date",0,Created on,Created on
+openacademy,field,"openacademy.session,date_debut",0,Date Début,Date Début
+openacademy,field,"openacademy.session,date_fin",0,Date Fin,Date Fin
+openacademy,view,openacademy.session,openacademy.session_kanban_view,Date de Début:,Date de Début:
+openacademy,view,openacademy.session,openacademy.session_kanban_view,Delete,Delete
+openacademy,view,openacademy.course,openacademy.course_form_view,Description,Description
+openacademy,field,"openacademy.course,description",0,Description,Description
+openacademy,field,"openacademy.course,display_name",0,Display Name,Display Name
+openacademy,field,"openacademy.session,display_name",0,Display Name,Display Name
+openacademy,field,"openacademy.wizard,display_name",0,Display Name,Display Name
+openacademy,selection,"openacademy.session,state",0,Done,Done
+openacademy,selection,"openacademy.session,state",0,Draft,Draft
+openacademy,field,"openacademy.session,duree",0,Duree,Duree
+openacademy,field,"openacademy.session,heures",0,Durée en Heure,Durée en Heure
+openacademy,help,"openacademy.session,duree",0,Durée pour un jour,Durée pour un jour
+openacademy,view,openacademy.session,openacademy.session_kanban_view,Durée:,Durée:
+openacademy,view,openacademy.course,openacademy.course_form_view,Fomulaire de Cours,Fomulaire de Cours
+openacademy,view,openacademy.session,openacademy.session_gantt_view,Gantt de Session,Gantt de Session
+openacademy,view,openacademy.session,openacademy.session_form_view,General,General
+openacademy,view,openacademy.course,openacademy.course_search_view,Group By,Group By
+openacademy,field,"openacademy.course,id",0,ID,ID
+openacademy,field,"openacademy.session,id",0,ID,ID
+openacademy,field,"openacademy.wizard,id",0,ID,ID
+openacademy,field,"openacademy.session,instructeur_id",0,Instructeur,Instructeur
+openacademy,field,"res.partner,instructeur",0,Instructeur,Instructeur
+openacademy,field,"openacademy.course,__last_update",0,Last Modified on,Last Modified on
+openacademy,field,"openacademy.session,__last_update",0,Last Modified on,Last Modified on
+openacademy,field,"openacademy.wizard,__last_update",0,Last Modified on,Last Modified on
+openacademy,field,"openacademy.course,write_uid",0,Last Updated by,Last Updated by
+openacademy,field,"openacademy.session,write_uid",0,Last Updated by,Last Updated by
+openacademy,field,"openacademy.wizard,write_uid",0,Last Updated by,Last Updated by
+openacademy,field,"openacademy.course,write_date",0,Last Updated on,Last Updated on
+openacademy,field,"openacademy.session,write_date",0,Last Updated on,Last Updated on
+openacademy,field,"openacademy.wizard,write_date",0,Last Updated on,Last Updated on
+openacademy,sql_constraint,openacademy.course,0,Le titlre du cour êxistant,Le titlre du cour êxistant
+openacademy,sql_constraint,openacademy.course,0,Le titre du cour doit être différent de la description,Le titre du cour doit être différent de la description
+openacademy,view,openacademy.session,openacademy.session_graph_view,Les Participations par Cours,Les Participations par Cours
+openacademy,view,openacademy.course,openacademy.course_tree_view,Liste des Cours,Liste des Cours
+openacademy,view,openacademy.session,openacademy.session_tree_view,Liste des Sessions,Liste des Sessions
+openacademy,view,openacademy.session,openacademy.session_form_view,Mark as done,Mark as done
+openacademy,view,openacademy.course,openacademy.course_search_view,Mes Cours,Mes Cours
+openacademy,field,"openacademy.session,name",0,Nom,Nom
+openacademy,view,openacademy.session,openacademy.session_kanban_view,Nom de Session:,Nom de Session:
+openacademy,field,"openacademy.session,nbr_participants",0,Nombre de Participants,Nombre de Participants
+openacademy,field,"openacademy.session,nbr_place",0,Nombre de Place,Nombre de Place
+openacademy,model,"ir.ui.menu,name",openacademy.main_openacademy_menu,Open Academy,Open Academy
+openacademy,model,"ir.ui.menu,name",openacademy.openacademy_menu,Open Academy,Open Academy
+openacademy,model,"res.groups,name",openacademy.group_manager,OpenAcademy / Manager,OpenAcademy / Manager
+openacademy,field,"openacademy.session,participant_ids",0,Participants,Participants
+openacademy,field,"openacademy.wizard,participant_ids",0,Participants,Participants
+openacademy,model,"ir.model,name",openacademy.model_res_partner,Partner,الشريك
+openacademy,field,"openacademy.session,place_occupe",0,Places Occupées,Places Occupées
+openacademy,view,openacademy.session,openacademy.session_form_view,Reset to draft,Reset to draft
+openacademy,view,openacademy.course,openacademy.course_search_view,Responsable,Responsable
+openacademy,field,"openacademy.course,responsable_id",0,Responsable,Responsable
+openacademy,view,openacademy.session,openacademy.session_form_view,Schedule,Schedule
+openacademy,view,openacademy.session,openacademy.session_form_view,Session Form,Session Form
+openacademy,model,"ir.actions.act_window,name",openacademy.session_list_action,Sessions,Sessions
+openacademy,model,"ir.ui.menu,name",openacademy.session_menu,Sessions,Sessions
+openacademy,view,openacademy.course,openacademy.course_form_view,Sessions,Sessions
+openacademy,field,"openacademy.course,session_ids",0,Sessions,Sessions
+openacademy,field,"openacademy.wizard,session_ids",0,Sessions,Sessions
+openacademy,view,res.partner,openacademy.partner_instructeur_form_view,Sessions,Sessions
+openacademy,view,openacademy.course,openacademy.course_form_view,Sessions Enregistrées,Sessions Enregistrées
+openacademy,field,"res.partner,session_ids",0,Sessions Participes,Sessions Participes
+openacademy,model,"ir.actions.server,name",openacademy.set_session_to_draft,Set Session to Draft,Set Session to Draft
+openacademy,model,"ir.actions.server,name",openacademy.set_session_to_confirmed,Set session to Confirmed,Set session to Confirmed
+openacademy,model,"ir.actions.server,name",openacademy.set_session_to_done,Set session to Done,Set session to Done
+openacademy,field,"openacademy.session,state",0,State,State
+openacademy,view,openacademy.wizard,openacademy.wizard_form_view,Subscribe,Subscribe
+openacademy,model,"res.partner.category,name",openacademy.teacher1,Teacher / Level 1,Teacher / Level 1
+openacademy,model,"res.partner.category,name",openacademy.teacher2,Teacher / Level 2,Teacher / Level 2
+openacademy,field,"openacademy.course,title",0,Titre,Titre
+openacademy,view,openacademy.wizard,openacademy.wizard_form_view,or,or
